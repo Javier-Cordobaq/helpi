@@ -8,7 +8,7 @@ export const LayoutNav = styled.div`
     position: fixed;
     top: 0;
     width: 100%;
-    height: 7rem;
+    height: ${props => props.scroll === 'false' ? '7rem' : '5rem'};
     background-color: ${props => props.scroll === 'false' ? '' : 'white'};
     box-sizing: border-box;
     padding: 0 3rem;
@@ -46,8 +46,9 @@ export const LayoutNav = styled.div`
             display: none;
         }
         .letterLogo {
+            transition: 0.3s all ;
             display: block;
-            width: 9rem;
+            width: ${props => props.scroll === 'false' ? '9rem' : '7rem'};
         }
     }
     @media (min-width: 1536px){
