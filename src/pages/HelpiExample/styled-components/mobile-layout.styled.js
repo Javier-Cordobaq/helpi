@@ -109,10 +109,22 @@ export const MobileLayout = styled(motion.div)`
         }
         .bot-message {
             display: flex;
+            flex-direction: column;
+            gap: 10px;
             width: 100%;
             box-sizing: border-box;
             p {
                 border-radius: 1rem 1rem 1rem 0;
+            }
+            button {
+                max-width: 15rem;
+                box-sizing: border-box;
+                padding: 5px;
+                background-color: #212121;
+                margin-left: 5px;
+                border-radius: 1rem;
+                color: white;
+                border: none;
             }
         }
         .client-message {

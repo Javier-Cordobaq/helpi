@@ -11,28 +11,19 @@ import { useEffect, useState } from 'react';
 
 const MobilePhone = () => {
 
-    const [messages, setMessages] = useState([])
-    const {start, setStart, addMessage } = useMessage({setMessages, messages})
-    const { newMessage, setNewMessage } = useText()
+    const { newMessage, clientMessages, setNewMessage, addClientMessage } = useText()
+    const { start, messages, setStart, addMessage } = useMessage(clientMessages)
 
-    const handleAdd = (message) => {
-        setMessages([...messages, message])
+    const handleAdd = () => {
+        addMessage({ text: newMessage, by: 'client' })
+        addClientMessage({ text: newMessage, by: 'client' })
         setNewMessage('')
     }
 
-    const answers = () => {
-        messages.find(c => c.text === 'hola') ? handleAdd({
-            text: 'En helpi te ofrecemos dos bots, uno para telegram y otro para whatsap, digita 1 para whatsapp',
-            by: 'bot'
-        }) : null
+    const handleButton = (c) => {
+        addMessage({ text: c, by: 'client' })
+        addClientMessage({ text: c, by: 'client' })
     }
-
-    useEffect(() => {
-        console.log('Se vovlio a Ejecutar')
-        if (messages.length !== 0) {
-            answers()
-        }
-    }, [])
 
     return (
         <MobileLayout
@@ -76,6 +67,15 @@ const MobilePhone = () => {
                                             >
                                                 {c.text}
                                             </motion.p>
+                                            {
+                                                c.buttons?.map(c => <motion.button
+                                                    animate={{ opacity: '100%', y: '0' }}
+                                                    initial={{ opacity: '20%', y: '5px' }}
+                                                    onClick={() => handleButton(c)}
+                                                >
+                                                    {c}
+                                                </motion.button>)
+                                            }
                                         </div> :
                                         <div key={c.text} className='client-message'>
                                             <motion.p
@@ -102,7 +102,7 @@ const MobilePhone = () => {
                                 <ImAttachment style={{ color: '#5A7575', fontSize: '1.5vw' }} />
                                 <BiMicrophone style={{ color: '#5A7575', fontSize: '1.5vw' }} />
                             </div> :
-                            <IoSend onClick={() => handleAdd({ text: newMessage, by: 'client' })} style={{ color: '#5A7575', fontSize: '1.5vw' }} />
+                            <IoSend onClick={() => handleAdd()} style={{ color: '#5A7575', fontSize: '1.5vw' }} />
                     }
                 </div>
             </div>

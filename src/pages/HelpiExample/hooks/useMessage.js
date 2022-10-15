@@ -1,27 +1,44 @@
 import { useState, useEffect } from "react";
 
-const useMessage = ({setMessages, messages}) => {
+const useMessage = (clientMessages) => {
 
     // Para inicializar el Bot
     const [start, setStart] = useState(false)
     //Para guardar todos los mesnajes
-    //const [messages, setMessages] = useState([])
+    const [messages, setMessages] = useState([])
 
     const addMessage = (message) => {
         setMessages([...messages, message])
     }
 
+    const answers = () => {
+        clientMessages.find(c => c.text === 'hola') ? addMessage({
+            text: 'En helpi te ofrecemos dos bots, uno para telegram y otro para whatsap, digita 1 para whatsapp',
+            buttons: ['Whatsapp', 'Telegram'],
+            by: 'bot'
+        }) : null
+        clientMessages.find(c => c.text === 'Telegram') ? addMessage({
+            text: 'Escribiste telegram?',
+            by: 'bot'
+        }) : null
+    }
+
     useEffect(() => {
-        if (messages.length !== 0 || start === true) {
+        if (messages.length !== 0) {
+            setTimeout(() => { answers() }, 800)
+        }
+        if (messages.length === 0 && start === true) {
             addMessage({
-                text: 'Bienvenido!, para interactuar escribe hola',
+                text: 'Hola!, bienbenido a helpi, para interactuar escribe hola',
                 by: 'bot'
             })
         }
-    }, [start])
+    }, [start, clientMessages])
 
     return {
+        messages,
         start,
+        addMessage,
         setStart,
     }
 
