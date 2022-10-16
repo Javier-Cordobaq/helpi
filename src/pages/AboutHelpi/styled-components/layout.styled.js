@@ -6,6 +6,7 @@ export const Layout = styled.div`
     place-items: center;
     width: 100%;
     height: auto;
+    overflow: hidden;
 
     .box-container {
         z-index: 2;

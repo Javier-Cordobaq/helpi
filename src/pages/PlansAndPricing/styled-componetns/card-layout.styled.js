@@ -8,9 +8,13 @@ export const CardLayout = styled(motion.div)`
     align-items: center;
     justify-content: center;
     height: ${props => props.title === 'Bussines' ? '25rem' : '20rem'};
+    border: ${props => props.title === 'Bussines' ? '5px solid #01497c' : ''};
     width: 100%;
-    border: 1px solid gray;
-    border-radius: 1rem;
-    box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.205);
+
+    -webkit-border-radius: 44px;
+    border-radius: 44px;
+    background: #cee5ff;
+    -webkit-box-shadow: 22px 22px 30px #c0d5ed, -22px -22px 30px #dcf5ff;
+    box-shadow: 22px 22px 30px #c0d5ed, -22px -22px 30px #dcf5ff;
 
 `

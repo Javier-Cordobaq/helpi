@@ -7,12 +7,22 @@ import { IoSend } from "react-icons/io5";
 import { useText, useMessage } from '../hooks';
 import { motion } from 'framer-motion';
 import helpi from '../../../assets/helpi-logo.webp'
-import { useEffect, useState } from 'react';
 
-const MobilePhone = () => {
+const mobileVariants = {
+    open: {
+        scale: 1,
+        y: 0,
+    },
+    closed: {
+        scale: 1.4,
+        y: 120,
+    }
+}
+
+const MobilePhone = ({ startGlobal, setStart }) => {
 
     const { newMessage, clientMessages, setNewMessage, addClientMessage } = useText()
-    const { start, messages, setStart, addMessage } = useMessage(clientMessages)
+    const { messages, addMessage } = useMessage(clientMessages, startGlobal)
 
     const handleAdd = () => {
         addMessage({ text: newMessage, by: 'client' })
@@ -27,9 +37,8 @@ const MobilePhone = () => {
 
     return (
         <MobileLayout
-            initial={{ opacity: 0, y: '50px' }}
-            whileInView={{ opacity: 1, y: '0' }}
-            transition={{ delay: 1.1, type: 'fade' }}
+            animate={startGlobal === true ? 'open' : 'closed'}
+            variants={mobileVariants}
         >
             <div className='content-container'>
                 <div className='chat-header-container'>
@@ -53,7 +62,7 @@ const MobilePhone = () => {
                 </div>
                 <div className='messages-container'>
                     {
-                        start === false ?
+                        startGlobal === false ?
                             <div className='button-start' >
                                 <button onClick={() => setStart(true)}>Comenzar</button>
                             </div> :

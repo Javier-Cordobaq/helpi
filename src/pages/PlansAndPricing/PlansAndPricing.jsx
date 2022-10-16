@@ -6,7 +6,7 @@ const plans = [
   {
     title: 'Basic',
     price: '$40',
-    
+
   },
   {
     title: 'Bussines',

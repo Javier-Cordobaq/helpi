@@ -41,34 +41,10 @@ export const LayoutGrid = styled.div`
         position: relative;
     }
 
-/*     .bot {
-    position: relative;
-    height: 100%;
-    max-width: 100%;
-    z-index: 1;
-   }
-
-   .bot_hand {
-    z-index: 0;
-    position: absolute;
-    top: 28%;
-    right: 6%;
-    width: 12rem;
-    animation: hand_move 2s linear infinite alternate-reverse;
-    @keyframes hand_move {
-        from {
-            rotate: 0deg;
-        }
-        to {
-            rotate: 20deg;
-        }
-    }
-   } */
 
     h1, button {
         z-index: 1;
     }
-    
     h1 {
         font-size: 4rem;
         margin: 0;

@@ -4,13 +4,21 @@ import telegram from '../../../assets/telegram.webp'
 
 export const MobileLayout = styled(motion.div)`
 
-    height: 33rem;
-    width: 18rem;
-    background-color: white;
+    height: 20rem;
+    width: 100vw;
+    background-color:  #212121;
     border: 10px solid black;
+    outline: 10px solid gray;
     border-radius: 2rem;
     overflow: hidden;
     box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.205);
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+
+    p {
+        color: white;
+    }
 
     .content-container {
         height: 100%;
@@ -185,8 +193,8 @@ export const MobileLayout = styled(motion.div)`
         max-width: 768px;
     }
     @media (min-width: 1280px){
-        /* max-width: 20vw;
-        height: 80vh; */
+        height: 33rem;
+        width: 18rem;
     }
     @media (min-width: 1536px){
         max-width: 1536px;

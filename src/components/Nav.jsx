@@ -21,7 +21,11 @@ const Nav = () => {
         <img className='letterLogo' src={letterLogo} alt='' />
       </div>
       <div className='menu_container'>
-        <GrLanguage style={{height: '1.5rem', width: '1.5rem', opacity: '60%'}} />
+        <GrLanguage className='translate-icon' style={{ height: '1.5rem', width: '1.5rem', opacity: '60%' }} />
+        <div className='translate-menu'>
+          <p>Español (ES)</p>
+          <p>English (ES)</p>
+        </div>
       </div>
     </LayoutNav>
   )

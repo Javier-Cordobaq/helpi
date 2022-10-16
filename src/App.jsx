@@ -4,12 +4,12 @@ import AboutHelpi from './pages/AboutHelpi/AboutHelpi'
 import Hellow from './pages/Hellow/Hellow'
 import HelpiExample from './pages/HelpiExample/HelpiExample'
 import PlansAndPricing from './pages/PlansAndPricing/PlansAndPricing'
-import { LayoutResponsive } from './styled-components'
+import { Layout, LayoutResponsive } from './styled-components'
 
 function App() {
 
   return (
-    <div className="App">
+    <Layout>
       <Nav/>
       <LayoutResponsive>
         <Hellow />
@@ -17,7 +17,7 @@ function App() {
         <HelpiExample/>
         <PlansAndPricing />
       </LayoutResponsive>
-    </div>
+    </Layout>
   )
 }
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-const useMessage = (clientMessages) => {
-
+const useMessage = (clientMessages, startGlobal) => {
+    console.log(startGlobal, 'StartGlovbal desde CusdtomHooks')
     // Para inicializar el Bot
     const [start, setStart] = useState(false)
     //Para guardar todos los mesnajes
@@ -27,13 +27,13 @@ const useMessage = (clientMessages) => {
         if (messages.length !== 0) {
             setTimeout(() => { answers() }, 800)
         }
-        if (messages.length === 0 && start === true) {
+        if (messages.length === 0 && startGlobal === true) {
             addMessage({
                 text: 'Hola!, bienbenido a helpi, para interactuar escribe hola',
                 by: 'bot'
             })
         }
-    }, [start, clientMessages])
+    }, [clientMessages, startGlobal])
 
     return {
         messages,

@@ -2,34 +2,20 @@
   margin: 0;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
- /*  background: rgb(142, 209, 252);
-  background: linear-gradient(100deg, rgba(171, 184, 195, 1) 0%,  rgba(142, 209, 252, 1) 100%); */
-  color: black;
-}
-
-a {
-  text-decoration: none;
-  color: #002533;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 6px;
+  background-color: #cee5ff;
+  }
+
+  ::-webkit-scrollbar-track {
   background-color: none;
-}
-::-webkit-scrollbar-track{
-  background-color: none;
-  background-color:  transparent;
-}
-::-webkit-scrollbar-thumb{
+  }
+
+  ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color:  gray;
-}
+  background-color: gray;
+  }
